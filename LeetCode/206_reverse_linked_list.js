@@ -9,6 +9,8 @@
 // A linked list can be reversed either iteratively or recursively. Could you implement both?
 
 //single linked list
+
+//iteration
 function ListNode(val) {
   this.val = val;
   this.next = null;
@@ -25,3 +27,15 @@ function reverse_linked_list(head) {
   }
   return prev;
 }
+
+//recursion
+function reverseList(head) {
+  if (!head || !head.next) {
+    return head;
+  }
+  var newHead = reverseList(head.next);
+  head.next.next = head;
+  head.next = null;
+  return newHead;
+}
+//recursion
