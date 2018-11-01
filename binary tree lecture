@@ -1,0 +1,3 @@
+Tree - is a graph (nodes and edges) with no cycles
+Binary - at most 2 children
+Search - at any node, all left children are < , all right are >=
