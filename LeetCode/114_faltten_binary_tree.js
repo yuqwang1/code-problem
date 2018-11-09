@@ -27,16 +27,16 @@
 //  *     this.left = this.right = null;
 //  * }
 
-function flatten_tree(node) {
+function flatten_tree(root) {
   let prev = null;
   let dfs = function(node) {
-  if (!node) return null;
-  dfs(node.right);
-  dfs(node.left);
+    if (!node) return null;
+    dfs(node.right);
+    dfs(node.left);
 
-  node.right = prev;
-  node.left = null;
-  prev = node;
+    node.right = prev;
+    node.left = null;
+    prev = node;
   }
   dfs(root)
 

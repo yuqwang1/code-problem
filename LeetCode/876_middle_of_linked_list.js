@@ -18,13 +18,13 @@
 // Since the list has two middle nodes with values 3 and 4, we return the second one.
 
 function middle_linked_list (head) {
-  if (!head || !head.next) return head;
-  let fast = head;
-  let slow = head;
-  while (fast && fast.next) {
-    slow = slow.next;
-    fast = fast.next.next;
-  }
+    if (!head || !head.next) return head;
+    let fast = head;
+    let slow = head;
+    while (fast && fast.next) {
+      slow = slow.next;
+      fast = fast.next.next;
+    }
 
-  return slow;
+    return slow;
 }

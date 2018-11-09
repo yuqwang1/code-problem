@@ -15,3 +15,13 @@
 // Output: [4,5,9]
 // Explanation: You are given the third node with value 1, the linked list
 //              should become 4 -> 5 -> 9 after calling your function.
+* Definition for singly-linked list.
+ * function ListNode(val) {
+ *     this.val = val;
+ *     this.next = null;
+ * }
+
+ var deleteNode = function(node) {
+    node.val = node.next.val;
+    node.next = node.next.next;
+};
