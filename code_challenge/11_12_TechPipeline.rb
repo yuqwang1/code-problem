@@ -65,4 +65,26 @@ end
 count_visible_iter(myTree)
 
 
-#
+#Cut tree problem, ex [3,4,5,4] return 2 since take out 5, new array [3,4,4] is sorted increasingly,
+# take out the second 4, new array [3,4,5] is sorted increasingly
+#[4,5,1,2,3] return 0
+#[2,3,4,5,1] return 1
+#[1,2,2,3,4,5,6] return 7
+
+def cutTree(array)
+  if array.sort == array
+    return array.length
+  end
+  array_copied = array.dup
+  i = 0
+  count = 0
+  while i <= array.length
+    array = array_copied.dup
+    array.delete_at(i)
+    if (array == array.sort)
+      count += 1
+    end
+    i += 1
+  end
+  return count
+end
