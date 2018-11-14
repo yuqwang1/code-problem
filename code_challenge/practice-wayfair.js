@@ -14,3 +14,20 @@ function array_combination (arr) {
     return result;
   }
 }
+
+// sort the number: move the negative number before positive number
+function sort_number (arr) {
+  let flag = false;
+  while (!flag) {
+    flag = true;
+    for (let i = 0; i < arr.length - 1; i++) {
+      if (arr[i] > arr[i + 1]) {
+        let temp = arr[i + 1];
+        arr[i + 1] = arr[i];
+        arr[i] = temp;
+        flag = false;
+      }
+    }
+  }
+  return arr
+}
