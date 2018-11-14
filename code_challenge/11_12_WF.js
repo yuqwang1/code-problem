@@ -25,6 +25,17 @@ function bulbMoment(array) {
   return count;
 }
 
+//better solution
+function solution(array) {
+  let max = array[0];
+  let count = 0
+  for (let i = 0; i < array.length; i++) {
+    max = array[i] < max ? max : array[i]
+    if (i + 1 === max) count++
+  }
+  return count
+}
+
 //Given a number of binary representation, if the number is even, divide by two,
 // if odd, minus 1, until the number reach 0. count the steps
 // ex '011100' number = 28, so the result return 7
@@ -50,4 +61,19 @@ function reverse (str) {
     result += str[i]
   }
   return result
+}
+
+function reverse (str) {
+ if (str === '') return ''
+return reverse(str.slice(1)) + str.charAt(0)
+}
+
+//find the uniq element in an array
+function findSingle(array){
+  var freqs = {};
+  array.forEach(n => {
+    if (!(n in freqs)) freqs[n] = 1;
+    else freqs[n] += 1;
+  });
+  return Object.keys(freqs).filter(k => freqs[k] === 1);
 }
