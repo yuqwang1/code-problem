@@ -1,3 +1,4 @@
+#TechPipeline
 #tree find visible node, visible node is node which value is greater or equal to root value
 class TreeNode
   attr_accessor :x, :r, :l

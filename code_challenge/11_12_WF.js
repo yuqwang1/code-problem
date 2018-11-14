@@ -1,3 +1,4 @@
+//wayfair
 //Give an array of bulb, number 1 to N, at Kth moment, turn on the Kth bulb,
 //return how many moment all the bulb are shine.
 //ex. bulb 1,2,3,4,5
@@ -40,4 +41,13 @@ function Step(string) {
     count++
   }
   return count;
+}
+
+// reverse a string
+function reverse (str) {
+  let result = '';
+  for (let i = str.length - 1; i >= 0; i--) {
+    result += str[i]
+  }
+  return result
 }
