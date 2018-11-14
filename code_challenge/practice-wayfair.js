@@ -31,3 +31,31 @@ function sort_number (arr) {
   }
   return arr
 }
+//•	Given a string, return a boolean value if the strings contains matching brackets
+
+//Example:
+//Input: "This is [a valid] string"
+//Output: True
+
+//Input: "This is an [invalid string"
+//Output: False
+
+function full_brackets (str) {
+  let count = 0;
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] === '[') {
+      count++
+    } else if (str[i] === ']') {
+      count--
+    }
+
+    if (count < 0) {
+      return false;
+    }
+  }
+  if (count !== 0) {
+    return false;
+  } else {
+    return true;
+  }
+}
