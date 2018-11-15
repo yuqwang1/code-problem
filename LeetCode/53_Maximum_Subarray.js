@@ -18,11 +18,11 @@ var maxSubArray = function(nums) {
 
 // anthoer method
 let maxSubArray = function(nums) {
-  let sum = nums[0];
+  let maxSoFar = nums[0];
+  let maxEndingHere = nums[0];
   for (let i = 1; i < nums.length; i++) {
-    let newSum = sum + nums[i]
-    sum = newSum > sum ? newSum : sum
-
+    maxEndingHere = Math.max(maxEndingHere + nums[i], nums[i])
+    maxSoFar = Math.max(maxSoFar, maxEndingHere)
   }
-  return sum
+  return maxSoFar;
 }
