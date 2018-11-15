@@ -14,3 +14,15 @@ var maxSubArray = function(nums) {
     }
     return sum
 };
+
+
+// anthoer method
+let maxSubArray = function(nums) {
+  let sum = nums[0];
+  for (let i = 1; i < nums.length; i++) {
+    let newSum = sum + nums[i]
+    sum = newSum > sum ? newSum : sum
+
+  }
+  return sum
+}
