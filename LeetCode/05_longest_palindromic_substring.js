@@ -39,3 +39,24 @@ var longestPalindrome = function(s) {
   }
   return result
 };
+// dynamic approach
+function longestPalindrome(s) {
+  let longest = '';
+  let longestLength = 0;
+  for (let i = 0; i < s.length; i++) {
+    for (let j = i; j < i + 2; j++) {
+      let left = i;
+      let right = j;
+      while (s[left] && s[left] === s[right]) {
+        let substring = s.slice(left, right + 1)
+        if (substring.length > longestLength) {
+          longest = substring;
+          longestLength = substring.length
+        }
+        left--;
+        right++;
+      }
+    }
+  }
+  return longest;
+}
