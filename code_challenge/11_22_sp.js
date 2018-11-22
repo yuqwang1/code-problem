@@ -23,5 +23,8 @@ What is the difference between 'var' 'let' and 'constant'
 'let' block scope,
 'const' block scope, A variable created with const cannot be changed after it is initialized.
 
+How to use jQuery to fetch the head tag?
+How to use JavaScript to change head tag color?
+document.getElementById("head").style.color = "blue"
 How do you create the app?
 How dose the google map work? the pointer ?
