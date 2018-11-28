@@ -24,6 +24,8 @@ What is the difference between 'var' 'let' and 'constant'
 'const' block scope, A variable created with const cannot be changed after it is initialized.
 
 How to use jQuery to fetch the head tag?
+$('head').css(color: blue)
+$('#navigation ul li').css('display', 'inline-block')
 How to use JavaScript to change head tag color?
 document.getElementById("head").style.color = "blue"
 How do you create the app?
