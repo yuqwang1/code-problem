@@ -45,6 +45,7 @@ Sample Input
 //Please submit the correct answer for the longer input file below
 
 
+
 const Direction = [[-1,0],[0,1],[1,0],[0,-1]]
 
 function max_direction(obstacle,command){
@@ -54,6 +55,7 @@ function max_direction(obstacle,command){
   let max = 0;
   let d = 0;
   for (let j = 0; j < command.length; j++) {
+    let k = parseInt(command[j]);
     if (command[j] === 'L') {
       if (i - 1 < 0) {
         i = 4;
@@ -66,13 +68,27 @@ function max_direction(obstacle,command){
       }
       init_d = Direction[i + 1];
       i = i + 1;
-    } else if (parseInt(command[j])){
-      while (command[j] !== 0) {
-        origin[0] = origin[0] + init_d[0] * 1;
-        origin[1] = origin[1] + init_d[1] * 1;
+    } else if (k){
+      while (k !== 0) {
+        let possible_move = origin;
+        console.log(possible_move)
+        let blocked = false;
+        possible_move[0] = possible_move[0] + init_d[0] * 1;
+        possible_move[1] = possible_move[1] + init_d[1] * 1;
+        for (let m = 0; m < obstacle.length; m++){
+          if (obstacle[m][0] === possible_move[0] && obstacle[m][1] === possible_move[1]){
+            blocked = true;
+            k = 0;
+            break;
+
+          }
+        }
+        if (!blocked){
+          origin = possible_move;
+          k--;
+        }
       }
-      origin[0] = origin[0] + init_d[0] * parseInt(command[j]);
-      origin[1] = origin[1] + init_d[1] * parseInt(command[j]);
+
 
       d = Math.sqrt(origin[0] * origin[0] + origin[1] * origin[1]);
       if (max < d) {
