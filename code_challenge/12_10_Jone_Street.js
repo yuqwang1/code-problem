@@ -67,6 +67,10 @@ function max_direction(obstacle,command){
       init_d = Direction[i + 1];
       i = i + 1;
     } else if (parseInt(command[j])){
+      while (command[j] !== 0) {
+        origin[0] = origin[0] + init_d[0] * 1;
+        origin[1] = origin[1] + init_d[1] * 1;
+      }
       origin[0] = origin[0] + init_d[0] * parseInt(command[j]);
       origin[1] = origin[1] + init_d[1] * parseInt(command[j]);
 
