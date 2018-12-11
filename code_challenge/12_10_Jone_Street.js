@@ -46,6 +46,7 @@ Sample Input
 
 
 
+
 const Direction = [[-1,0],[0,1],[1,0],[0,-1]]
 
 function max_direction(obstacle,command){
@@ -69,27 +70,35 @@ function max_direction(obstacle,command){
       init_d = Direction[i + 1];
       i = i + 1;
     } else if (k){
+      if (k === 1 && parseInt(command[j + 1] === 0)){
+        k = 10;
+      }
       while (k !== 0) {
-        let possible_move = origin;
-        console.log(possible_move)
+        //important, otherwise origin mutate each times when possible_move mutate
+        let possible_move = origin.slice();
         let blocked = false;
         possible_move[0] = possible_move[0] + init_d[0] * 1;
+
         possible_move[1] = possible_move[1] + init_d[1] * 1;
         for (let m = 0; m < obstacle.length; m++){
           if (obstacle[m][0] === possible_move[0] && obstacle[m][1] === possible_move[1]){
+            // console.log(obstacle[m])
             blocked = true;
             k = 0;
             break;
+            // console.log(origin)
+
 
           }
         }
         if (!blocked){
           origin = possible_move;
+          // console.log(origin)
           k--;
         }
       }
 
-
+    // console.log(origin)
       d = Math.sqrt(origin[0] * origin[0] + origin[1] * origin[1]);
       if (max < d) {
         max = d
