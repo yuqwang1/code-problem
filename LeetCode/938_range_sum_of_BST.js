@@ -17,6 +17,23 @@ Note:
 The number of nodes in the tree is at most 10000.
 The final answer is guaranteed to be less than 2^31.
 
+* Definition for a binary tree node.
+ * function TreeNode(val) {
+ *     this.val = val;
+ *     this.left = this.right = null;
+ * }
+ */
+
 function BST(root, L, R) {
-  
+  if (root == null) {
+     return 0
+   }
+   if (root.val > R) {
+      return rangeSumBST(root.left, L, R)
+   }else if (root.val < L){
+      return rangeSumBST(root.right, L, R)
+   } else {
+     return root.val + rangeSumBST(root.left, L, R) + rangeSumBST(root.right, L, R)
+   }
+
 }
