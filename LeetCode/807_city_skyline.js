@@ -32,39 +32,23 @@ All buildings in grid[i][j] occupy the entire grid cell: that is, they are a 1 x
 
 
 function maxIncreaseKeepingSkyline(grid){
-    // Find the max height for each row
-    // Find the length of the longest row to handle uneven grid
-    var rowMaxs = [];
-    var maxItemsInRow = 0;
-    for (var y = 0; y < grid.length; ++y) {
-        var horizontalMax = 0;
-        for (var x = 0; x < grid[y].length; ++x) {
-            horizontalMax = Math.max(horizontalMax, grid[y][x]);
-        }
-        rowMaxs.push(horizontalMax);
-        maxItemsInRow = Math.max(maxItemsInRow, grid[y].length);
-    }
+  var sideview = [], topview=[], sidemax=0, topmax=0, sum=0;
 
-    // Find the max height for each column
-    // Guard for out of bounds to handle uneven grids
-    var colMaxs = [];
-    for (var x = 0; x < maxItemsInRow; ++x) {
-        var verticalMax = 0;
-        for (var y = 0; y < grid.length; ++y) {
-            if (x < grid[y].length) {
-                verticalMax = Math.max(verticalMax, grid[y][x]);
-            }
-        }
-        colMaxs.push(verticalMax);
-    }
+for(let i=0; i<grid.length; i++) {
+  for(let j=0; j<grid.length; j++) {
+    sidemax = Math.max(grid[i][j], sidemax);
+    topmax = Math.max(grid[j][i], topmax);
+  }
+  sideview[i] = sidemax; topview[i] = topmax;
+  sidemax=0; topmax = 0; // reset before new comparisons again
+}
 
-    // Count the height we can grow each building
-    var res = 0;
-    for (var y = 0; y < grid.length; ++y) {
-        for (var x = 0; x < grid[y].length; ++x) {
-            res += Math.min(rowMaxs[y], colMaxs[x]) - grid[y][x];
-        }
-    }
+sum = 0;
+for(let i=0; i<grid.length; i++) {
+  for(let j=0; j<grid.length; j++) {
+    sum = sum + Math.min(topview[j], sideview[i]) - grid[i][j];
+  }
+}
 
-    return res;
+return sum;
 };
