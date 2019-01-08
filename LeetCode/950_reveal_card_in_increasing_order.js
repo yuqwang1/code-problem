@@ -35,3 +35,13 @@ Note:
 1 <= A.length <= 1000
 1 <= A[i] <= 10^6
 A[i] != A[j] for all i != j
+
+var deckRevealedIncreasing = function(deck) {
+    deck = deck.sort(a,b) => { a - b};
+    let result = deck.slice()[deck.length - 1];
+    for (var i = deck.length - 2; i >= 0; i--) {
+      result.unshift(result.pop());
+      result.unshift(deck[i]);
+    }
+    return result
+};
