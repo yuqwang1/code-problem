@@ -38,10 +38,8 @@ A[i] != A[j] for all i != j
 
 var deckRevealedIncreasing = function(deck) {
     deck.sort((a,b) => { return a - b});
-    console.log(deck)
     let result = []
     result.push(deck[deck.length - 1]);
-    console.log(result)
     for (var i = deck.length - 2; i >= 0; i--) {
       result.unshift(result.pop());
       result.unshift(deck[i]);
