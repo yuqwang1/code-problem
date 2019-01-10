@@ -17,3 +17,9 @@ Explanation: Reads 01 from right to left. Therefore it is not a palindrome.
 Follow up:
 
 Coud you solve it without converting the integer to a string?
+
+Palindrome_number(number){
+  for (var i = 0; i < number.length; i++) {
+    
+  }
+}
