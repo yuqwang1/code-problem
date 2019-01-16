@@ -19,7 +19,16 @@ Follow up:
 Coud you solve it without converting the integer to a string?
 
 Palindrome_number(number){
-  for (var i = 0; i < number.length; i++) {
-    
+  if (number < 0) {
+    return false;
   }
+  for (var i = 0; i < number.length / 2; i++) {
+    number = number.slice().toString();
+    if (number[i] === number[number.length - i - 1]){
+      continue;
+    } else {
+      return false;
+    }
+  }
+  return true;
 }
