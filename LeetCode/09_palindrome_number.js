@@ -18,12 +18,14 @@ Follow up:
 
 Coud you solve it without converting the integer to a string?
 
-Palindrome_number(number){
-  if (number < 0) {
+var isPalindrome = function(number) {
+    if (number < 0) {
     return false;
   }
-  for (var i = 0; i < number.length / 2; i++) {
-    number = number.slice().toString();
+  number = number.toString();
+  for (let i = 0; i < number.length / 2; i++) {
+
+
     if (number[i] === number[number.length - i - 1]){
       continue;
     } else {
@@ -31,4 +33,4 @@ Palindrome_number(number){
     }
   }
   return true;
-}
+};
