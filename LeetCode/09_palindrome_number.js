@@ -34,3 +34,19 @@ var isPalindrome = function(number) {
   }
   return true;
 };
+
+//second method imporve time complexity;
+
+var isPalindrome = function(number) {
+  let rev = 0;
+  let numberCopy = number;
+  while (numberCopy > 0){
+    rev = (rev * 10) + numberCopy % 10;
+    numberCopy = Math.floor(numberCopy/10);
+  }
+  if (rev === number){
+    return true;
+  } else {
+    return false;
+  }
+}
