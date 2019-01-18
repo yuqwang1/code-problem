@@ -42,3 +42,16 @@ Input:
 s = "mississippi"
 p = "mis*is*p*."
 Output: false
+
+
+var isMatch = function(s, p) {
+    for (let i = 0; i < s.length; i++) {
+      for (let j = 0; j < p.length; j++) {
+        if (s[i] === p[j]){
+          if (s[i + 1] === s[i] && p[j + 1] === "*"){
+
+          }
+        }
+      }
+    }
+};
