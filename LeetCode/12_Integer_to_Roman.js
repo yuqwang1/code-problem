@@ -53,8 +53,28 @@ Explanation: M = 1000, CM = 900, XC = 90 and IV = 4.
 function Integer_to_Roman(number){
   let result = '';
   while (number > 0){
-    if (number > 1000){
-      result.push(M)
+    if (number >= 1000){
+      result += 'M';
+      number -= 1000;
+    } else if (number >= 500 ) {
+      result += 'D';
+      number -= 500;
+    } else if (number >= 100) {
+      result += 'C';
+      number -= 100;
+    } else if (number >= 50) {
+      result += 'L';
+      number -= 50;
+    } else if (number >= 10) {
+      result += 'X';
+      number -= 10;
+    } else if (number >= 5) {
+      result += 'V';
+      number -= 5;
+    } else if (number >= 1) {
+      result += 'I';
+      number -= 1;
     }
   }
+  return result;
 }
