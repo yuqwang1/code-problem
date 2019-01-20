@@ -49,3 +49,12 @@ Example 5:
 Input: 1994
 Output: "MCMXCIV"
 Explanation: M = 1000, CM = 900, XC = 90 and IV = 4.
+
+function Integer_to_Roman(number){
+  let result = '';
+  while (number > 0){
+    if (number > 1000){
+      result.push(M)
+    }
+  }
+}
