@@ -23,6 +23,7 @@ Output: ""
 Explanation: There is no common prefix among the input strings.
 
 var longestCommonPrefix = function(strs) {
+  if (strs.length === 0){return ''};
   let strLength = strs[0].length;
   let str = strs[0];
   for (let i = 1; i < strs.length; i ++){
