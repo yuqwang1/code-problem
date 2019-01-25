@@ -12,7 +12,23 @@ Note:
 
 Although the above answer is in lexicographical order, your answer could be in any order you want.
 
-Accepted
-330,284
-Submissions
-829,481
+var letterCombinations = function(digits) {
+    constant MAP = {2:'abc',3:'def',4:'ghi',5:'jkl',6:'mno',7:'pqrs',8:'tuv',9:'wxyz'};
+    if (digits.length === 0) return [];
+    let result = [];
+    let combinations = function(currComb){
+      if (currComb.length === digit.length) {
+        result.push(currComb);
+      } else {
+        let index = currComb.length;
+        let letters = MAP[digits[index]];
+        for (letter of letters){
+          currComb += letter;
+          combination(currComb);
+          currComb = currComb.slice(0, currComb.length - 1);
+        }
+      }
+    }
+    combinations();
+    return result;
+};
