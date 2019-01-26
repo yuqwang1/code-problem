@@ -32,6 +32,41 @@ $("document").ready(function() {
   //contains for text content
   $("#oListTypes li:not(:contains(and))").css("color","red")
   $("a:contains(gravida)").css("color","blue");
-  //has for inside tag 
+  //has: for inside tag
+  //hide: hide the content
   $("p:has(i)").hide();
+
+  alert($("p:has(i)").html());
+  //add some text and show
+  $("p:has(i)").html("<i>Some normal text</i>").show();
+  //attach text content after
+  $("p:has(i)").append("I go at the end");
+  //attach text content before
+  $("p:has(i)").prepend("I go at the begining");
+  //add a paragraph before
+  $("p:has(i)").before("<p id='before_p>'A new paragraph beofre</p>");
+  $("p:has(i)").after("<p id='after_p'> A new paragraph after</p>");
+  $("#after_p").click(function() {
+    $(this).remove();
+  })
+
+  $("#before_p").click(function() {
+    $(this).replaceWith('<p>I\m the new paragraph</p>')
+  });
+
+  $("#oListIndent li").each(function(index){
+    let inputListStuff = $("#listStuff").val();
+    $("#listStuff").val(inputListStuff + ", " + $(this).text());
+  })
+
+  //change attribute
+  //add class
+  $("oListIndent li").addClass("Harry_Potter");
+  $(".Harry_Potter").css("color", "#36454F");
+  $("#oListIndent li").click(function() {
+    $(this).toggleClass("hightlight");
+  })
+
+
+
 })
