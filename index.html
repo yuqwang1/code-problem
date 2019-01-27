@@ -4,6 +4,15 @@
     <meta charset="utf-8">
     <title>jQuery Crash Courese | Selectors</title>
     <script src='https://code.jquery.com/jquery-3.1.0.min.js'></script>
+    <!-- we need $(document).ready to let the whole page run and then call the click event function -->
+    <!-- <script>
+      $(document).ready(function(){
+        $('#btn1').click(function(){
+          alert('Button Clicked!');
+        })
+      })
+
+    </script> -->
     <style>
       body{
         font-size: 17px;
@@ -31,7 +40,8 @@
       <h1>jQuery Crash Course</h1>
     </header>
     <div id='container'>
-      <h1 id='heading1'>Heading one</h1>
+      <!-- selector -->
+      <!-- <h1 id='heading1'>Heading one</h1>
       <p id="para1">efwfwefefewfewfewfewfewf
       wefwefwefewfewfewfewfewfewfewfewfw
        <span>spanspanspan</span>
@@ -59,7 +69,31 @@
       <input type="submit" value="Submit">
       <input type="text">
       <a href="http://google.com">Google</a>
-      <a href="http://yahoo.com">Yahoo</a>
+      <a href="http://yahoo.com">Yahoo</a> -->
+      <!-- event -->
+      <h3>Mouse Events</h3>
+      <button id='btn1' class='btnClass1' type="button" name="button">Button 1</button>
+      <button id='btn2' type="button" name="button">Button 2</button>
+      <p class='para1'>wefwefwefewfewfewfewfewfewfewfewfw
+      fewfewfefewfewfewfewfewfewfewfewfewfewf
+    fewfewfefewfewfewfewfewfewfewfewfewfewf</p>
+    <!-- <h1 id='coords'></h1> -->
+    <hr>
+    <form id='form'>
+      <label>Name</label><br>
+      <input type='text' id='name' name='name'>
+      <br>
+      <label>Email</label><br>
+      <input type="email" id='email' name="email" value="">
+      <br>
+      <label>Gender</label><br>
+      <select class="" id='gender' name="gender">
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+
+      </select>
+      <input type="submit" name="" value="Submit">
+    </form>
     </div>
     <script>
       //selector//
@@ -77,6 +111,94 @@
       // $('[href]').css('color','red');
       // $('a[href="http://yahoo.com"]').css('color','green');
       // $('*').hide();
+
+      // Events
+      // $('#btn1').click(function(){
+      //   alert('Button Clicked');
+      // })
+      // alternative way to write the function
+      // $('#btn1').on('click', function(){
+      //   alert('Button Clicked');
+      // })
+
+      // $('#btn1').click(function(){
+        // $('.para1').hide();
+      //   $('.para1').toggle();
+      // })
+      //
+      // $('#btn2').click(function(){
+      //   $('.para1').show();
+      // })
+
+      // $('#btn1').dblclick(function(){
+      //   $('.para1').toggle();
+      // })
+
+      // $('#btn1').hover(function(){
+      //   $('.para1').toggle();
+      // })
+
+      //hover full inteperation
+      // $('#btn1').on('mouseenter', function(){
+      //   $('.para1').toggle();
+      // })
+      //
+      // $('#btn1').on('mouseleave', function(){
+      //   $('.para1').toggle();
+      // })
+
+      // $('#btn1').on('mousemove'),function(){
+      //   $('.para1').toggle();
+      // }
+
+      // $('#btn1').on('mousedown', function(){
+      //   $('.para1').toggle();
+      // })
+      // $('#btn1').on('mouseup', function(){
+      //   $('.para1').toggle();
+      // })
+
+      // $('#btn1').click(function(e){
+        // alert(e.currentTarget.id);
+        // alert(e.currentTarget.innerHTML);
+        // alert(e.currentTarget.outerHTML);
+      //   alert(e.currentTarget.className);
+      // });
+
+        // $('#btn1').on('mousemove', function(e){
+        //   console.log('Coords: Y: ' + e.clientY +'X: ' + e.clientX);
+        // })
+        // $(document).on('mousemove', function(e){
+        //   console.log('Coords: Y: ' + e.clientY +' X: ' + e.clientX);
+        // })
+        // $(document).on('mousemove', function(e){
+        //   $('#coords').html('Coords: Y: ' + e.clientY +' X: ' + e.clientX);
+        // })
+
+        // $('input').focus(function(){
+        //   // alert('Focus');
+        //   $(this).css('background','pink')
+        // });
+        // $('input').blur(function(){
+        //   // alert('Focus');
+        //   $(this).css('background','white')
+        // });
+        //
+        // $('input').keyup(function(e){
+        //   console.log(e.target.value);
+        // });
+
+        $('select#gender').change(function(e){
+          alert(e.target.value);
+        })
+
+        $('#form').submit(function(e){
+          e.preventDefault();
+          let name = $('input#name').val();
+          console.log(name);
+        })
+
+
     </script>
   </body>
 </html>
