@@ -63,6 +63,7 @@ $("document").ready(function() {
   //add class
   $("oListIndent li").addClass("Harry_Potter");
   $(".Harry_Potter").css("color", "#36454F");
+  //toggleClass turn on and off when click
   $("#oListIndent li").click(function() {
     $(this).toggleClass("hightlight");
   })
