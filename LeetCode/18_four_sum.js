@@ -20,7 +20,7 @@ var fourSum = function(nums, target) {
     let result = [];
     for(let i = 0; i < nums.length; i++){
       let sumThree = target - nums[i];
-      for (let j = I + 1; j < nums.length; j++){
+      for (let j = i + 1; j < nums.length; j++){
         let sumTwo = sumThree - nums[j];
         let front = j + 1;
         let back = nums.length - 1;
@@ -41,7 +41,7 @@ var fourSum = function(nums, target) {
             }
           }
         }
-        while (nums[j] === num[j+1]) j++;
+        while (nums[j] === nums[j+1]) j++;
       }
       while (nums[i] === nums[i+1]) i++;
     }
