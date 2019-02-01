@@ -17,10 +17,33 @@ A solution set is:
 
 var fourSum = function(nums, target) {
     if (nums.length === 0) return [];
+    let result = [];
     for(let i = 0; i < nums.length; i++){
       let sumThree = target - nums[i];
       for (let j = I + 1; j < nums.length; j++){
-        let sumTwo = sumThree - nums[j]
+        let sumTwo = sumThree - nums[j];
+        let front = j + 1;
+        let back = nums.length - 1;
+        while (front < back){
+          let fbSum = nums[front] + nums[back];
+          if (sumTwo > fbSum){
+            back--;
+          } else if (sumTwo < fbSum){
+            front++;
+          }else {
+            let sum = [nums[i],nums[j],nums[front],nums[back]];
+            result.push(sum);
+            while(front < back && nums[front] === sum[2]){
+              front++;
+            }
+            while (front < back && nums[back] === sum[3]){
+              back--
+            }
+          }
+        }
+        while (nums[j] === num[j+1]) j++;
       }
+      while (nums[i] === nums[i+1]) i++;
     }
+    return result;
 };
