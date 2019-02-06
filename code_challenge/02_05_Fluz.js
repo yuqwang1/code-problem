@@ -24,3 +24,28 @@ function getMinUniqSum(arr){
     sum += arr1[i];
   }
 }
+
+There are n citizens voting in this year's HackLand election. Each voter writes the name of their chosen candidate on a ballot and places it in a ballot box. The candidate with the highest number of votes wins the election; if two or more candidates have the same number of votes, then the tied candidates' names are ordered alphabetically and the last name wins.
+
+Complete the electionWinner function in your editor. It has 1 parameter: an array of strings, votes, describing the votes in the ballot box. This function must review these votes and return a string representing the name of the winning candidate.
+
+
+function electionWinner(votes){
+  const candidate = {};
+  for (let name of votes){
+    candidate[name] = (candidate[name] || 0) + 1;
+  }
+
+  let winners = [];
+  let maxVotes = 0;
+  for(let name in candidate){
+    if (candidate[name] > maxVotes){
+      maxVotes = candidate[name];
+      winners = [name];
+    } else if (candidate[name] === maxVotes){
+      winners.push(name);
+    }
+    winners.sort();
+    retrun winners[winners.length - 1];
+  }
+}
