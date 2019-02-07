@@ -12,8 +12,8 @@ function getMinUniqSum(arr){
   let sum = 0;
   let arr1 = [];
   arr1.push(arr[0]);
-  for (var i = 0; i < arr.length; i++) {
-    let curr = arr[i];
+  for (let i = 1; i < arr.length; i++) {
+    let val = arr[i];
     while (arr1.includes(val)){
       val++;
     }
