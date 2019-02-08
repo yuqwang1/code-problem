@@ -49,3 +49,8 @@ function electionWinner(votes){
     retrun winners[winners.length - 1];
   }
 }
+
+What is the biggest challenge I ever solve in coding ?
+How is your team work ? Talk about the experience of pair programming ?
+If you have a disagreement with you colleauges, what will you do ?
+What will you do if you are been stuck with a problem, what would be your working process ?
