@@ -22,32 +22,7 @@ Output: 1->1->2->3->4->4->5->6
  * @return {ListNode}
  */
  //need a hepl method to compare one with another and merge
- var mergeKLists = function(lists) {
-   function mergeHelp(list1, list2){
-     let curr = new ListNode(0);
-     let res = curr;
-     while (list1 && list2){
-       if (list1.val >= list2.val){
-         curr.next = list2;
-         list2 = list2.next;
-       } else {
-         curr.next = list1;
-         list1 = list1.next;
-       }
-       curr = curr.next;
-     }
-     curr.next = list1 || list2;
-     return res.next;
-   }
 
-   let root = lists[0]
-  for (let i = 0; i < lists.length; i++){
-  root = mergeHelp(root, lists[i])
-  }
-
-   return root || null;
-
- };
 
  var mergeKLists = function(lists) {
   function merge(l1, l2){
@@ -70,7 +45,7 @@ Output: 1->1->2->3->4->4->5->6
 
   let result = lists[0];
   for (let i = 1; i < lists.length; i++) {
-    result = merge(root, lists[i]);
+    result = merge(result, lists[i]);
   }
 
   return result || null;
