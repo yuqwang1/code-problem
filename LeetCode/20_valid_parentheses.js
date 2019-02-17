@@ -28,27 +28,32 @@ Input: "{[]}"
 Output: true
 
 var isValid = function(s) {
-    let i = 0;
-    while (i < s.length) {
-      let count1 = 0;
-      let count2 = 0;
-      let count3 = 0;
-      if (s[i] === '('){
-        count1 += 1;
-      } else if (s[i] === '{'){
-        count2 += 1;
-      } else if (s[i] === '['){
-        count3 += 1;
-      } else if (s[i] === ')'){
-        count1 -= 1;
-      } else if (s[i] === '}'){
-        count2 -= 1;
-      } else if (s[i] === ']'){
-        count3 -= 1;
+    let check = [];
+    for (let i = 0; i < s.length; i++){
+      if (s[i] === '{' || s[i] === '[' || s[i] ==='('){
+        check.push(s[i]);
       }
-      if (count1 < 0 || count2 < 0 || count3 < 0){
-        return false;
+
+      if (s[i] === '}'){
+        if (check.pop() !== '{'){
+          return false;
+        }
+      }
+
+        if (s[i] === ']'){
+        if (check.pop() !== '['){
+          return false;
+        }
+      }
+
+        if (s[i] === ')'){
+        if (check.pop() !== '('){
+          return false;
+        }
       }
     }
-    return true;
-}
+    if (check.length > 0){
+      return false;
+    }
+    return true
+};
