@@ -1,0 +1,2 @@
+In JavaScript, obj.method(), 'this' refer to the obj; function (), 'this' refer to a 
+global object, in strict mode, this refer to undefined
