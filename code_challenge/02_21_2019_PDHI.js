@@ -9,7 +9,7 @@ What is a closure ?
 What is a promise ?
 A promise is an object that may produce a single value some time in the future:
 either a resolved value, or a reason that it’s not resolved (e.g., a network error occurred).
-A promise may be in one of 3 possible states: fulfilled, rejected, or pending. 
+A promise may be in one of 3 possible states: fulfilled, rejected, or pending.
 Promise users can attach callbacks to handle the fulfilled value or the reason for rejection.
 What is a binary Tree ?
 What is big O ?
@@ -21,3 +21,23 @@ What is a linklist ?
 What is a Set and what operation does Set have ?
 Set.add(value), Set.delete(value), Set.values(), Set.has(value)
 What is a Class ?
+
+
+const emailPassDueDate = () => {
+  const current_date = Date.now();
+  let unpaid_user = new Set();
+  let unpaid_email = [];
+  for (let i = 0; i < Invoice.length; i++) {
+    if (Invoice[i].payment_status === 'unpaid' && Invoice[i].due_date > current_date) {
+      unpaid_user.add(Invoice[i].subscriber_id)
+    }
+  }
+
+  for (let j = 0; j < Subscriber.length; j++) {
+    if (unpaid_user.includes(Subscriber[j].id)) {
+      unpaid_email.push(Subscriber[j].email)
+    }
+  }
+
+  return unpaid_email
+}

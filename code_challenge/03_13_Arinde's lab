@@ -1,0 +1,4 @@
+1. In what way you store the password ?
+
+2. How to get the backend date from database ?
+Using AcitveRecord, Post.all
