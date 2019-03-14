@@ -2,3 +2,5 @@
 
 2. How to get the backend date from database ?
 Using AcitveRecord, Post.all
+In the controller ArticlesController we use the model Article to get all articles in the database
+and render the view index.html.erb as the server response (the UI).
