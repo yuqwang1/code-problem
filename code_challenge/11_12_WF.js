@@ -26,14 +26,18 @@ function bulbMoment(array) {
 }
 
 //better solution
-function solution(array) {
-  let max = array[0];
-  let count = 0
-  for (let i = 0; i < array.length; i++) {
-    max = array[i] < max ? max : array[i]
-    if (i + 1 === max) count++
-  }
-  return count
+function solution(A) {
+    // write your code in JavaScript (Node.js 8.9.4)
+    let moment;
+    let count = 0;
+    for (i = 0; i < A.length; i++) {
+        moment = A.slice(0, i + 1);
+        if (Math.max(...moment) === i + 1){
+            count++
+        }
+    }
+    return count;
+
 }
 
 //Given a number of binary representation, if the number is even, divide by two,
