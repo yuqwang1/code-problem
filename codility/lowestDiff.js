@@ -39,24 +39,27 @@ Write an efficient algorithm for the following assumptions:
 N is an integer within the range [2..100,000];
 each element of array A is an integer within the range [−1,000..1,000].
 
+23%
+// function solution(A) {
+//     // write your code in JavaScript (Node.js 8.9.4)
+//     if (A.length < 2) return A;
+//     let min = 0;
+//     let lowest = A.slice(0, A.length).reduce((acc, int) => acc + int)
+//     for (let i = 1; i <A.length; i++) {
+//         let sum1 = A.slice(0, i).reduce((acc, int) => acc + int);
+//         let sum2 = A.slice(i, A.length).reduce((acc, int) => acc + int);
+//         min = Math.abs(sum1 - sum2);
+//         if (lowest > min){
+//             lowest = min
+//         }
+//     }
+//     return lowest;
+// }
+//
+84%
 function solution(A) {
     // write your code in JavaScript (Node.js 8.9.4)
-    if (A.length < 2) return A;
-    let min = 0;
-    let lowest = A.slice(0, A.length).reduce((acc, int) => acc + int)
-    for (let i = 1; i <A.length; i++) {
-        let sum1 = A.slice(0, i).reduce((acc, int) => acc + int);
-        let sum2 = A.slice(i, A.length).reduce((acc, int) => acc + int);
-        min = Math.abs(sum1 - sum2);
-        if (lowest > min){
-            lowest = min
-        }
-    }
-    return lowest;
-}
-
-function solution(A) {
-    // write your code in JavaScript (Node.js 8.9.4)
+    for (A.length < 2) return A;
     let left_sum = 0;
     let right_sum = A.reduce((acc,int) => acc + int);
     let lowest = Number.MAX_VALUE;
@@ -70,4 +73,21 @@ function solution(A) {
         }
     }
     return lowest
+}
+
+100%
+
+function solution(A) {
+    // write your code in JavaScript (Node.js 8.9.4)
+    let i, ll = A.length, tot = 0, upto = 0, min = Number.MAX_VALUE;
+
+    for (i=0; i<ll; i++) tot += A[i];
+
+    for (i=0; i<ll-1; i++) {
+        upto += A[i];
+        var a1 = upto, a2 = tot - a1, dif = Math.abs(a1 - a2);
+        if (dif < min)
+         min = dif;
+    }
+    return min;
 }
