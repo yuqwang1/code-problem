@@ -20,21 +20,16 @@ Your function should return length = 5, with the first five elements of nums bei
 It doesn't matter what values are set beyond the returned length.
 
 var removeDuplicates = function(nums) {
-    if(nums.length === 0) {
-        return 0
-    }
-    let result = 1, i = 0, j = 1;
-
-    while(i < nums.length && j < nums.length) {
-        if(nums[j] === nums[i]) {
-            j++;
+    if (nums.length === 0 || nums === null) return nums;
+   let i = 1;
+    for (let j = 0; j < nums.length - 1; j++) {
+        if (nums[j] !== nums[j+1]) {
+            nums[i] = nums[j + 1]
+            console.log(nums[i])
+            i++
         } else {
-            result += 1;
-            i++;
-            nums[i] = nums[j];
-            j++;
+          continue;
         }
     }
-
-    return result;
+    return i
 };
