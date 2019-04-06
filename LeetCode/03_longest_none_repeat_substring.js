@@ -9,7 +9,6 @@ const longestNoneRepeat = (s) => {
       set.add(s[i]);
       result = Math.max(result, set.size)
     }
-    console.log(set)
   }
   return result
 }

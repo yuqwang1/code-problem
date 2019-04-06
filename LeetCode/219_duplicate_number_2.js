@@ -40,13 +40,14 @@ var containsNearbyDuplicate = function(nums, k) {
 }
 
 //sliding window
-
+//time complexity = 0(n) space = o(k)
 var containsNearbyDuplicate = function(nums,k) {
+    if (k <= 0) return false
   let set = new Set ();
   for (let i = 0; i < nums.length; i++){
-    if (i > k) set.remove(nums[i - k])
-    set.add(nums[i])
     if (set.has(nums[i])) return true;
+    if (i >= k) set.delete(nums[i - k])
+    set.add(nums[i])
   }
   return false;
 }
