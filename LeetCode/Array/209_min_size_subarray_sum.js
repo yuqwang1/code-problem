@@ -10,6 +10,7 @@ Explanation: the subarray [4,3] has the minimal length under the problem constra
 Follow up:
 If you have figured out the O(n) solution, try coding another solution of which the time complexity is O(n log n).
 
+//time O(n)
 var minSubArrayLen = function(s, nums) {
     if (nums.length === 0 || nums === null) return 0
     let min = Number.MAX_VALUE;
