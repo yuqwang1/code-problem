@@ -10,6 +10,27 @@
 //Input: "cbbd"
 //Output: "bb"
 //work but slow
+
+O(n) time O(1) space
+function longestPalindrome(s) {
+    let maxSub = '';
+    for (let i = 0; i < s.length; i++){
+        for (let j = 0; j < 2; j++){
+            let left = i;
+            let right = i + j;
+            while (s[left] && s[left] === s[right]){
+                left--;
+                right++
+            }
+            if ((right - left - 1) > maxSub.length){
+                maxSub = s.slice(left + 1, right)
+            }
+        }
+    }
+    return maxSub
+}
+
+
 var longestPalindrome = function(s) {
   if (!s) return '';
   let longest = 0;
@@ -48,6 +69,7 @@ function longestPalindrome(s) {
       let left = i;
       let right = j;
       while (s[left] && s[left] === s[right]) {
+        //not good create many space complexity
         let substring = s.slice(left, right + 1)
         if (substring.length > longestLength) {
           longest = substring;
